@@ -1,6 +1,8 @@
 import React ,{Component} from 'react'
 import AddButton from './AddButton'
 import InputArea from './InputArea'
+import TaskArea from './TaskArea'
+import Fixtures from './Fixtures'
 import './css/style.css'
 
 
@@ -23,14 +25,10 @@ class App extends Component {
                 <div className ="TodoList__container">
                     <h1 className = "Todolist__title">Todo List</h1>
                     <div className="TodoList__Area">
-                        <h2>Место для TodoLista</h2>
                         <div className="TodoList__BOX">
-                            {/* Место для инпута */}
-                            {/*<InputArea/>*/}
-                            {/* Место для кнопки */}
-                            {/*<AddButton/>*/}
-                            {/* Место для List */}
-                            {/*<taskArea/>*/}
+                            <InputArea/>
+                            <AddButton/>
+                            <TaskArea/>
                         </div>
                     </div>
                 </div>
@@ -39,6 +37,8 @@ class App extends Component {
         );
     }
 }
+
+
 
 
 
