@@ -1,0 +1,51 @@
+.TodoList{
+    margin:0 auto;
+    text-align: center;
+}
+.Todolist__title{
+    font-size:60px;
+    color:black;
+}
+.TodoList__Area{
+    background-color:purple;
+    padding: 50px;
+    font-size:40px;
+}
+.TodoList__BOX{
+    background-color: white;
+    padding: 30px;
+    margin: 20px;
+    text-align: left;
+}
+.TodoLIst__inputArea{
+    background-color:black;
+    width:65%;
+    margin-right: 20px;
+    padding:20px;
+    display: inline-block;
+    color:white;
+    font-size:18px;
+}
+.TodoList__buttonArea{
+    background-color: purple;
+    width: 26%;
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+}
+.TodoList__listArea{
+    background-color:black;
+    margin-top:20px;
+    padding: 30px;
+}
+.taskList{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+.taskList__task{
+    color:white;
+    padding-top:15px;
+    border-bottom:1px solid white;
+}
