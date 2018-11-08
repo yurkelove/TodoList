@@ -1,19 +1,22 @@
 import React from 'react'
 
-const Tasks = [
+export default[
 	{
-  	text: "task 1",
+    id : 'task' + 1,
+    text: "task 1",
     is_done: false
   },
   {
-  	text: "task 2",
+    id : 'task' + 2,
+    text: "task 2",
     is_done: false
   },
   {
+    id : 'task ' + 3,
   	text: "task 3",
     is_done: true
   }
 ]
 
-export default Tasks
+
 

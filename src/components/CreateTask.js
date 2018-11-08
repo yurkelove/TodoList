@@ -7,6 +7,7 @@ class CreateTask extends Component{
     }
 
     render(){
+
         return(
             <section className={`TodoArea`}>
 
@@ -26,13 +27,7 @@ class CreateTask extends Component{
 
     }
 
-    addElement(){
-        const elem = document.createElement("li");
-        const inputValue = document.getElementById('inputId').value;
-        const textNode = document.createTextNode(inputValue);
-        elem.appendChild(textNode);
-        document.getElementById('todoList').appendChild(elem);
-    };
+
 
     enterAdd(e){
         if(e.keyCode === 13){

@@ -1,7 +1,7 @@
 import React ,{Component} from 'react'
 import TaskArea from './TaskArea'
 import CreateTask from './CreateTask'
-import Fixtures from './Fixtures'
+import fixtures from './Fixtures'
 import './css/style.css'
 
 
@@ -26,7 +26,7 @@ class App extends Component {
                     <div className="TodoList__Area">
                         <div className="TodoList__BOX">
                             <CreateTask/>
-                            <TaskArea/>
+                            <TaskArea fixtures = {fixtures} />
                         </div>
                     </div>
                 </div>
@@ -35,6 +35,16 @@ class App extends Component {
         );
     }
 }
+
+
+
+// addElement(){
+//     const elem = document.createElement("li");
+//     const inputValue = document.getElementById('inputId').value;
+//     const textNode = document.createTextNode(inputValue);
+//     elem.appendChild(textNode);
+//     document.getElementById('todoList').appendChild(elem);
+// };
 
 
 
