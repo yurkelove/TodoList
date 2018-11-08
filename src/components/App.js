@@ -19,6 +19,7 @@ class App extends Component {
     }
 
     render() {
+        const{elements} = this.props;
         return (
             <div className="TodoList">
                 <div className ="TodoList__container">

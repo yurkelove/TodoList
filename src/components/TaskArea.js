@@ -2,8 +2,8 @@ import React from 'react'
 
 
 
+
 const TaskArea = () => {
-    // const {elements} = this.props;
     const listElements = this.props.fixtures.map((elements,index) =>
         <li key={elements.id} className={`todo__elements`}>
             <TaskArea elements = {elements}/>

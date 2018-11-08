@@ -7,10 +7,8 @@ class CreateTask extends Component{
     }
 
     render(){
-
         return(
             <section className={`TodoArea`}>
-
             <div className={`TodoLIst__inputArea`}>
                 <input className ={`inputText`} id={`inputId`} type={`text`} placeholder={`Добавить задачу...`} onKeyDown={this.enterAdd}></input>
             </div>
@@ -37,7 +35,7 @@ class CreateTask extends Component{
 
 }
 
-
+// const {elements} = this.props;
 
 
 
