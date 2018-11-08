@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default [
+const Tasks = [
 	{
   	text: "task 1",
     is_done: false
@@ -15,4 +15,5 @@ export default [
   }
 ]
 
+export default Tasks
 

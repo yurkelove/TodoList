@@ -1,7 +1,6 @@
 import React ,{Component} from 'react'
-import AddButton from './AddButton'
-import InputArea from './InputArea'
 import TaskArea from './TaskArea'
+import CreateTask from './CreateTask'
 import Fixtures from './Fixtures'
 import './css/style.css'
 
@@ -26,8 +25,7 @@ class App extends Component {
                     <h1 className = "Todolist__title">Todo List</h1>
                     <div className="TodoList__Area">
                         <div className="TodoList__BOX">
-                            <InputArea/>
-                            <AddButton/>
+                            <CreateTask/>
                             <TaskArea/>
                         </div>
                     </div>
