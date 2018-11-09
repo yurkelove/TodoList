@@ -9,8 +9,7 @@ import './css/style.css'
 class App extends Component {
     construtor() {
         this.state = {
-            tasks: [],
-            isDone : true
+            tasks: []
         }
     }
     componentDidMount() {
