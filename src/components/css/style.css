@@ -11,12 +11,11 @@
     color:black;
 }
 .TodoList__Area{
-    padding: 50px;
+
     font-size:40px;
 }
 .TodoList__BOX{
     background-color: white;
-    padding: 30px;
     margin: 20px;
     text-align: left;
 }
@@ -89,6 +88,7 @@
     font-size:40px;
 }
 .button__item{
+    margin-right: 10px;
     float: right;
     background: purple;
     text-decoration: none;
@@ -97,5 +97,10 @@
     border-radius: 5px;
     color: white;
     font-size: 18px;
+    cursor:pointer;
+}
+.button__item:hover{
+    background-color: #430043;
+    transition: all .25s;
     cursor:pointer;
 }
