@@ -61,6 +61,13 @@
 .TodoList__listArea{
     padding: 30px;
 }
+.todo__elements{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size:40px;
+    color:black;
+}
 #todoList{
     list-style-type: none;
     margin: 0;
@@ -68,9 +75,18 @@
     font-size:40px;
     color:black;
 
+
 }
 .taskList__task{
     color:white;
     padding-top:15px;
     border-bottom:1px solid white;
+}
+.item__done{
+    background: #888;
+    text-decoration: line-through;
+}
+.item__false{
+    font-size:40px;
+    color:black;
 }

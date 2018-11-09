@@ -3,10 +3,10 @@ import React from 'react'
 
 
 
-const TaskArea = () => {
-    const listElements = this.props.fixtures.map((elements,index) =>
-        <li key={elements.id} className={`todo__elements`}>
-            <TaskArea elements = {elements}/>
+const TaskList = (props) => {
+    const listElements = props.items.map((item) =>
+        <li key={item.id} className={item.isDone ? 'item__done' : 'item__false'}>
+            {item.text}
         </li>
     );
     return(
@@ -20,4 +20,6 @@ const TaskArea = () => {
 
 
 
-export default TaskArea
+
+
+export default TaskList

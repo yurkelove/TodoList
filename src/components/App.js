@@ -1,7 +1,7 @@
 import React ,{Component} from 'react'
-import TaskArea from './TaskArea'
+import TaskList from './TaskList'
 import CreateTask from './CreateTask'
-import fixtures from './Fixtures'
+import items from './Fixtures'
 import './css/style.css'
 
 
@@ -9,7 +9,8 @@ import './css/style.css'
 class App extends Component {
     construtor() {
         this.state = {
-            tasks: []
+            tasks: [],
+            isDone : true
         }
     }
     componentDidMount() {
@@ -19,7 +20,6 @@ class App extends Component {
     }
 
     render() {
-        const{elements} = this.props;
         return (
             <div className="TodoList">
                 <div className ="TodoList__container">
@@ -27,7 +27,7 @@ class App extends Component {
                     <div className="TodoList__Area">
                         <div className="TodoList__BOX">
                             <CreateTask/>
-                            <TaskArea fixtures = {fixtures} />
+                            <TaskList items = {items} />
                         </div>
                     </div>
                 </div>
@@ -39,13 +39,6 @@ class App extends Component {
 
 
 
-// addElement(){
-//     const elem = document.createElement("li");
-//     const inputValue = document.getElementById('inputId').value;
-//     const textNode = document.createTextNode(inputValue);
-//     elem.appendChild(textNode);
-//     document.getElementById('todoList').appendChild(elem);
-// };
 
 
 

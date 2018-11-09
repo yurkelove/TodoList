@@ -27,20 +27,7 @@ class CreateTask extends Component{
 
 
 
-    enterAdd(e){
-        if(e.keyCode === 13){
-            alert('work');
-        }
-    };
-
 }
-
-// const {elements} = this.props;
-
-
-
-
-
 
 
 export default CreateTask
