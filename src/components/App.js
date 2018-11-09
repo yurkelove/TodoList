@@ -13,11 +13,16 @@ class App extends Component {
             tasks: []
         }
     }
-    componentDidMount() {
-        this.setState({
-            // tasks: Fixtures
-        });
-    }
+
+    toogleTask = (id) =>{
+      const task = this.state.tasks.find(task => task.id === id);
+      task.isDone = !task.isDone;
+      this.setState({
+          tasks:this.state.tasks
+      })
+    };
+
+    //TaskList items = {items} - прокинули в TaskList
 
     render() {
         return (
@@ -27,7 +32,7 @@ class App extends Component {
                     <div className="TodoList__Area">
                         <div className="TodoList__BOX">
                             <CreateTask/>
-                            <TaskList items = {items} />
+                            <TaskList items = {items}/>
                         </div>
                     </div>
                 </div>

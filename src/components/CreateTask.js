@@ -7,7 +7,6 @@ class CreateTask extends Component{
 
     }
     render(){
-        // console.log('----',this.props);
         return(
             <section className={`TodoArea`}>
             <div className={`TodoLIst__inputArea`}>
