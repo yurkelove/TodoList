@@ -1,13 +1,12 @@
 import React from 'react'
+import TaskItem from "./TaskItem";
 
 
 
 
 const TaskList = (props) => {
     const listElements = props.items.map((item) =>
-        <li key={item.id} className={item.isDone ? 'item__done' : 'item__false'}>
-            {item.text}
-        </li>
+        <TaskItem key={item.id} item = {item}/>
     );
     return(
         <div className ="TodoList__listArea">

@@ -75,7 +75,6 @@
     font-size:40px;
     color:black;
 
-
 }
 .taskList__task{
     color:white;
@@ -83,10 +82,20 @@
     border-bottom:1px solid white;
 }
 .item__done{
-    background: #888;
     text-decoration: line-through;
 }
-.item__false{
-    font-size:40px;
+.todo__item{
     color:black;
+    font-size:40px;
+}
+.button__item{
+    float: right;
+    background: purple;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid purple;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    cursor:pointer;
 }

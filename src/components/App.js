@@ -2,6 +2,7 @@ import React ,{Component} from 'react'
 import TaskList from './TaskList'
 import CreateTask from './CreateTask'
 import items from './Fixtures'
+import TaskItem from './TaskItem'
 import './css/style.css'
 
 
