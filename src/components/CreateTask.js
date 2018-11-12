@@ -7,7 +7,6 @@ class CreateTask extends Component{
         this.inputElement = React.createRef();
     }
     render(){
-        const {createTask} = this.props;
         return(
             <section className={`TodoArea`}>
             <div className={`TodoLIst__inputArea`}>
@@ -42,7 +41,12 @@ class CreateTask extends Component{
     handleButton = () => {
         const {createTask} = this.props;
         const inputValue = this.inputElement.current.value;
-        createTask(inputValue);
+        if(inputValue !== ''){
+            createTask(inputValue);
+        }else{
+            alert('Нужно что то ввести')
+        }
+
     }
 
 
