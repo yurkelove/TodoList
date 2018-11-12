@@ -32,7 +32,7 @@ class App extends Component {
                     <div className="TodoList__Area">
                         <div className="TodoList__BOX">
                             <CreateTask/>
-                            <TaskList items = {items}/>
+                            <TaskList items = {items} toogleTask = {this.toogleTask}/>
                         </div>
                     </div>
                 </div>
