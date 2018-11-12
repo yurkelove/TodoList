@@ -21,9 +21,10 @@ class App extends Component {
     }
 
     createTask = (text) => {
+        const taskObj = {id: Math.random(),text: text , isDone:false};
+        this.state.tasks.push(taskObj);
         this.setState({
-            tasks: items,
-            currentItem : {id: '', text: text,isDone: false}
+            tasks: this.state.tasks
         })
     }
 

@@ -21,7 +21,7 @@ class CreateTask extends Component{
                 </input>
             </div>
             <div className = {`TodoList__buttonArea`}>
-                <button className={`buttonAdd`} onClick={createTask}>Добавить</button>
+                <button className={`buttonAdd`} onClick={this.handleButton}>Добавить</button>
             </div>
 
             </section>
@@ -33,13 +33,16 @@ class CreateTask extends Component{
 
     handleInput = (e) => {
         const {createTask} = this.props;
+        const inputValue = this.inputElement.current.value;
         if(e.keyCode === 13){
-            createTask()
+            createTask(inputValue)
         }
     }
 
     handleButton = () => {
-
+        const {createTask} = this.props;
+        const inputValue = this.inputElement.current.value;
+        createTask(inputValue);
     }
 
 
