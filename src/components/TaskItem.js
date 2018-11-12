@@ -6,24 +6,25 @@ const mark = String.fromCharCode(10004);
 class TaskItem extends PureComponent{
 
     render(){
-        const {toogleTask} = this.props;
         return(
         <li className={`todo__item`}>
-             <span className={toogleTask ? 'item__done' : ''}>
-                 {this.props.item.text}
+            {/*вызываем this.props.isDone - так как мы в TaskList - сделали spread operator */}
+             <span className={this.props.isDone ? 'item__done' : ''}>
+                 {this.props.text}
              </span>
-             <button className={`button__item`} onClick={this.handleClick}>
-                {toogleTask ? cross : mark }
+             <button className={`button__item`} onClick ={this.handleClick}>
+                {this.props.isDone ? cross : mark }
              </button>
         </li>
         )
     }
 
     handleClick = () =>{
-        this.setState({
-            isDone : !this.state.isDone
-     })
-}
+        // родительсий метод,id
+        const {toogleTask,id} = this.props;
+        // Вызов метода из родительского елемента
+        toogleTask(id);
+    }
 
 
 }

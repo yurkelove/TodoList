@@ -8,11 +8,20 @@ import './css/style.css'
 
 
 class App extends Component {
-    construtor() {
+    constructor(props) {
+       super(props);
         this.state = {
             tasks: []
         }
     }
+
+    componentDidMount() {
+        this.setState({
+            tasks: items
+        });
+    }
+
+
 
     toogleTask = (id) =>{
       const task = this.state.tasks.find(task => task.id === id);
@@ -32,7 +41,7 @@ class App extends Component {
                     <div className="TodoList__Area">
                         <div className="TodoList__BOX">
                             <CreateTask/>
-                            <TaskList items = {items} toogleTask = {this.toogleTask}/>
+                            <TaskList items = {this.state.tasks} toogleTask = {this.toogleTask}/>
                         </div>
                     </div>
                 </div>
