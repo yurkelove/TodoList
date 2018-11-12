@@ -1,8 +1,7 @@
 import React ,{Component} from 'react'
 import TaskList from './TaskList'
 import CreateTask from './CreateTask'
-import items from './Fixtures'
-import TaskItem from './TaskItem'
+import items from '../Fixtures'
 import './css/style.css'
 
 
@@ -11,7 +10,7 @@ class App extends Component {
     constructor(props) {
        super(props);
         this.state = {
-            tasks: []
+            tasks: [],
         }
     }
 
@@ -19,6 +18,10 @@ class App extends Component {
         this.setState({
             tasks: items
         });
+    }
+
+    createTask = (text) => {
+        console.log(text);
     }
 
 
@@ -40,8 +43,14 @@ class App extends Component {
                     <h1 className = "Todolist__title">Todo List</h1>
                     <div className="TodoList__Area">
                         <div className="TodoList__BOX">
-                            <CreateTask/>
-                            <TaskList items = {this.state.tasks} toogleTask = {this.toogleTask}/>
+                            <CreateTask
+                                createTasks = {this.createTask}
+                                handleInput = {this.handleInput}
+                            />
+                            <TaskList
+                                items = {this.state.tasks}
+                                toogleTask = {this.toogleTask}
+                            />
                         </div>
                     </div>
                 </div>
