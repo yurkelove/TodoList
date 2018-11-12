@@ -7,6 +7,7 @@ class CreateTask extends Component{
         this.inputElement = React.createRef();
     }
     render(){
+        const {createTask} = this.props;
         return(
             <section className={`TodoArea`}>
             <div className={`TodoLIst__inputArea`}>
@@ -16,29 +17,29 @@ class CreateTask extends Component{
                        id={`inputId`}
                        type={`text`}
                        placeholder={`Добавить задачу...`}
-                       onChange={this.handleInput}>
+                       onKeyPress={this.handleInput}>
                 </input>
             </div>
             <div className = {`TodoList__buttonArea`}>
-                <button className={`buttonAdd`} onClick={this.addTask}>Добавить</button>
+                <button className={`buttonAdd`} onClick={createTask}>Добавить</button>
             </div>
 
             </section>
+
         )
 
     }
 
 
-    //ref = {this.props.inputElement}
-
-    addTask = () => {
-        const {createTasks} = this.props;
-        // Вопрос createTasks - из названия  createTasks = {this.createTask} ?
-        createTasks('Yes');
+    handleInput = (e) => {
+        const {createTask} = this.props;
+        if(e.keyCode === 13){
+            createTask()
+        }
     }
 
-    handleInput = () => {
-        console.log(this.inputElement.current.value);
+    handleButton = () => {
+
     }
 
 

@@ -21,7 +21,10 @@ class App extends Component {
     }
 
     createTask = (text) => {
-        console.log(text);
+        this.setState({
+            tasks: items,
+            currentItem : {id: '', text: text,isDone: false}
+        })
     }
 
 
@@ -44,8 +47,7 @@ class App extends Component {
                     <div className="TodoList__Area">
                         <div className="TodoList__BOX">
                             <CreateTask
-                                createTasks = {this.createTask}
-                                handleInput = {this.handleInput}
+                                createTask = {this.createTask}
                             />
                             <TaskList
                                 items = {this.state.tasks}
