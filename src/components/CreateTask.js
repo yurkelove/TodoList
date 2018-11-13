@@ -1,46 +1,59 @@
-import React ,{Component} from 'react'
+import React, {Component} from 'react';
 
 
-class CreateTask extends Component{
-    constructor(props){
+class CreateTask extends Component {
+
+    constructor(props) {
         super(props);
-        this.inputElement = React.createRef();
+        this.state = {
+            inpValue : ''
+        };
     }
-    render(){
+
+    render() {
         return(
             <section className={`TodoArea`}>
-            <div className={`TodoLIst__inputArea`}>
-                <input
-                       ref={this.inputElement}
-                       className = {`inputText`}
-                       id={`inputId`}
-                       type={`text`}
-                       placeholder={`Добавить задачу...`}
-                       onKeyPress={this.handleInput}>
-                </input>
-            </div>
-            <div className = {`TodoList__buttonArea`}>
-                <button className={`buttonAdd`} onClick={this.handleButton}>Добавить</button>
-            </div>
+
+                <div className={`TodoLIst__inputArea`}>
+                    <input
+                           className = {`inputText`}
+                           value = {this.state.inpValue}
+                           id={`inputId`}
+                           type={`text`}
+                           placeholder={`Введите значение...`}
+                           onKeyUp={this.handleInput}
+                           onChange={this.onChangeHandle}
+                    />
+                </div>
+                <div className = {`TodoList__buttonArea`}>
+                    <button className={`buttonAdd`} onClick={this.handleButton}>Добавить</button>
+                </div>
 
             </section>
-
-        )
-
+        );
     }
+
+
+    onChangeHandle = (e) => {
+        console.log(e.target.value);
+        this.setState ({
+            inpValue : e.target.value
+        });
+    };
 
 
     handleInput = (e) => {
         const {createTask} = this.props;
-        const inputValue = this.inputElement.current.value;
-        if(e.keyCode === 13){
+        const inputValue = this.state.inpValue;
+        if(e.keyCode === 13 && inputValue !== ''){
             createTask(inputValue)
         }
-    }
+
+    };
 
     handleButton = () => {
         const {createTask} = this.props;
-        const inputValue = this.inputElement.current.value;
+        const inputValue = this.state.inpValue;
         if(inputValue !== ''){
             createTask(inputValue);
         }
@@ -49,13 +62,8 @@ class CreateTask extends Component{
 
 
 
-
-
 }
 
 
 export default CreateTask
-
-
-
 

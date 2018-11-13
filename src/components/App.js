@@ -21,21 +21,25 @@ class App extends Component {
     }
 
     createTask = (text) => {
-        const taskObj = {id: Math.random(),text: text , isDone:false};
+        const taskObj = {
+            id: Math.random(),
+            text: text,
+            isDone:false
+        };
         this.state.tasks.push(taskObj);
         this.setState({
             tasks: this.state.tasks
         })
-    }
+    };
 
 
 
-    toogleTask = (id) =>{
-      const task = this.state.tasks.find(task => task.id === id);
-      task.isDone = !task.isDone;
-      this.setState({
+    toogleTask = (id) => {
+        const task = this.state.tasks.find(task => task.id === id);
+        task.isDone = !task.isDone;
+        this.setState({
           tasks:this.state.tasks
-      })
+        })
     };
 
     //TaskList items = {items} - прокинули в TaskList
