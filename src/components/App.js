@@ -36,8 +36,15 @@ class App extends Component {
         })
     };
 
-    delateTask = (id) => {
-
+    deleteTask = (id) => {
+        const filteredItem = this.state.tasks.filter(item => {
+            if(item.id !== id){
+                this.state.tasks.splice(id,1);
+            }
+        });
+        this.setState({
+            tasks: this.state.tasks
+        })
     };
 
 
@@ -64,6 +71,7 @@ class App extends Component {
                             <TaskList
                                 items = {this.state.tasks}
                                 toogleTask = {this.toogleTask}
+                                deleteTask = {this.deleteTask}
                             />
                         </div>
                     </div>

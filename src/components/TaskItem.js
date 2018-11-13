@@ -19,7 +19,7 @@ class TaskItem extends PureComponent{
                  <span className={this.props.isDone ? 'item__done' : ''}>
                      {this.props.text}
                  </span>
-                 <button className={`delate__item`}>Удалить</button>
+                 <button className={`delate__item`} onClick={this.handleDelete}>Удалить</button>
                  <button className={`button__item`} onClick ={this.handleClick}>
                     {this.props.isDone ?  cross :  mark   }
                  </button>
@@ -34,7 +34,12 @@ class TaskItem extends PureComponent{
         const {toogleTask,id} = this.props;
         // Вызов метода из родительского елемента
         toogleTask(id);
-    }
+    };
+
+    handleDelete = () => {
+        const {deleteTask,id} = this.props;
+        deleteTask(id);
+    };
 
 
 }
