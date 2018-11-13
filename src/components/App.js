@@ -33,18 +33,15 @@ class App extends Component {
         this.state.tasks.push(taskObj);
         this.setState({
             tasks: this.state.tasks
-        })
+        });
     };
 
     deleteTask = (id) => {
-        const filteredItem = this.state.tasks.filter(item => {
-            if(item.id !== id){
-                this.state.tasks.splice(id,1);
-            }
-        });
+        const index = this.state.tasks.findIndex(item => item.id === id);
+        this.state.tasks.splice(index,1);
         this.setState({
             tasks: this.state.tasks
-        })
+        });
     };
 
 
@@ -53,7 +50,7 @@ class App extends Component {
         task.isDone = !task.isDone;
         this.setState({
           tasks:this.state.tasks
-        })
+        });
     };
 
     //TaskList items = {items} - прокинули в TaskList
