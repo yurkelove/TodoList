@@ -43,10 +43,7 @@ class CreateTask extends Component{
         const inputValue = this.inputElement.current.value;
         if(inputValue !== ''){
             createTask(inputValue);
-        }else{
-            alert('Нужно что то ввести')
         }
-
     }
 
 
