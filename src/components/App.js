@@ -37,11 +37,18 @@ class App extends Component {
     };
 
     deleteTask = (id) => {
-        const index = this.state.tasks.findIndex(item => item.id === id);
+        const index = this.state.tasks.filter(item => {
+            return item.id !== id;
+        });
         this.state.tasks.splice(index,1);
         this.setState({
-            tasks: this.state.tasks
+            tasks: index
         });
+        // const index = this.state.tasks.findIndex(item => item.id === id);
+        // this.state.tasks.splice(index,1);
+        // this.setState({
+        //     tasks: this.state.tasks
+        // });
     };
 
 
