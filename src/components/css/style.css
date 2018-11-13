@@ -88,19 +88,38 @@
     font-size:40px;
 }
 .button__item{
-    margin-right: 10px;
-    float: right;
+    float:right;
     background: purple;
     text-decoration: none;
-    padding: 5px 10px;
+    width: 35px;
+    padding: 6px;
     border: 1px solid purple;
     border-radius: 5px;
     color: white;
     font-size: 18px;
     cursor:pointer;
+    margin-right: 30px;
 }
 .button__item:hover{
     background-color: #430043;
     transition: all .25s;
     cursor:pointer;
+}
+.delate__item{
+    float: right;
+    background-color: black;
+    color:white;
+    text-decoration: none;
+    padding: 6px 12px;
+    border:1px solid black;
+    border-radius: 5px;
+    font-size:18px;
+    curson:pointer;
+    margin-right: 10px;
+}
+.delate__item:hover{
+    background-color: red;
+    transition: all .25s;
+    cursor:pointer;
+    border: 1px solid red;
 }

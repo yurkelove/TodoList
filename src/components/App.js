@@ -3,6 +3,8 @@ import TaskList from './TaskList'
 import CreateTask from './CreateTask'
 import items from '../Fixtures'
 import './css/style.css'
+import nanoid from "nanoid";
+
 
 
 
@@ -20,9 +22,11 @@ class App extends Component {
         });
     }
 
+
+
     createTask = (text) => {
         const taskObj = {
-            id: Math.random(),
+            id: nanoid(),
             text: text,
             isDone:false
         };
@@ -32,6 +36,9 @@ class App extends Component {
         })
     };
 
+    delateTask = (id) => {
+
+    };
 
 
     toogleTask = (id) => {

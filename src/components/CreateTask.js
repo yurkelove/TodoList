@@ -5,6 +5,7 @@ class CreateTask extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             inpValue : ''
         };
@@ -35,7 +36,6 @@ class CreateTask extends Component {
 
 
     onChangeHandle = (e) => {
-        console.log(e.target.value);
         this.setState ({
             inpValue : e.target.value
         });
