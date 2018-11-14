@@ -1,9 +1,9 @@
 import React ,{Component} from 'react'
 import TaskList from './TaskList'
 import CreateTask from './CreateTask'
-import items from '../Fixtures'
 import './css/style.css'
 import nanoid from "nanoid";
+import EmptyList from './EmptyList'
 
 
 
@@ -13,14 +13,28 @@ class App extends Component {
        super(props);
         this.state = {
             tasks: [],
+            filter : 'all'
         }
     }
 
     componentDidMount() {
+        let tasksFromLS = this.getLocal();
+        console.log(tasksFromLS);
+        if(tasksFromLS === undefined ){
+            tasksFromLS = [];
+        }
         this.setState({
-            tasks: items
+            tasks: tasksFromLS
         });
-    }
+    };
+
+    getLocal = () => {
+        return JSON.parse(localStorage.getItem('tasks'));
+    };
+
+    tolocal = () => {
+        localStorage.setItem('tasks',JSON.stringify(this.state.tasks));
+    };
 
 
 
@@ -32,23 +46,20 @@ class App extends Component {
         };
         this.state.tasks.push(taskObj);
         this.setState({
-            tasks: this.state.tasks
+            tasks: this.state.tasks,
+        },() => {
+            this.tolocal();
         });
     };
 
     deleteTask = (id) => {
-        const index = this.state.tasks.filter(item => {
-            return item.id !== id;
-        });
+        const index = this.state.tasks.findIndex(item => item.id === id);
         this.state.tasks.splice(index,1);
         this.setState({
-            tasks: index
+            tasks: this.state.tasks
+        },() => {
+            this.tolocal();
         });
-        // const index = this.state.tasks.findIndex(item => item.id === id);
-        // this.state.tasks.splice(index,1);
-        // this.setState({
-        //     tasks: this.state.tasks
-        // });
     };
 
 
@@ -57,12 +68,16 @@ class App extends Component {
         task.isDone = !task.isDone;
         this.setState({
           tasks:this.state.tasks
+        },() => {
+            this.tolocal();
         });
     };
+
 
     //TaskList items = {items} - прокинули в TaskList
 
     render() {
+        const tasksLen = this.state.tasks.length;
         return (
             <div className="TodoList">
                 <div className ="TodoList__container">
@@ -72,11 +87,14 @@ class App extends Component {
                             <CreateTask
                                 createTask = {this.createTask}
                             />
-                            <TaskList
-                                items = {this.state.tasks}
-                                toogleTask = {this.toogleTask}
-                                deleteTask = {this.deleteTask}
-                            />
+                            {
+                                tasksLen ? <TaskList
+                                    items = {this.state.tasks}
+                                    toogleTask = {this.toogleTask}
+                                    deleteTask = {this.deleteTask}
+                                /> : <EmptyList/>
+
+                            }
                         </div>
                     </div>
                 </div>
@@ -87,10 +105,5 @@ class App extends Component {
 }
 
 
-
-
-
-
-
-
 export default App
+
