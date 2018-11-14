@@ -4,6 +4,7 @@ import CreateTask from './CreateTask'
 import './css/style.css'
 import nanoid from "nanoid";
 import EmptyList from './EmptyList'
+import RadioButton from './RadioButton'
 
 
 
@@ -13,7 +14,7 @@ class App extends Component {
        super(props);
         this.state = {
             tasks: [],
-            filter : 'all'
+            filter : 'done'
         }
     }
 
@@ -93,8 +94,10 @@ class App extends Component {
                                     toogleTask = {this.toogleTask}
                                     deleteTask = {this.deleteTask}
                                 /> : <EmptyList/>
-
                             }
+                        </div>
+                        <div className="RadioButton__filter">
+                            <RadioButton filter = {this.state.filter}/>
                         </div>
                     </div>
                 </div>

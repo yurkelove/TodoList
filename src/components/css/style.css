@@ -132,3 +132,14 @@
     text-align: center;
     margin-top:30px;
 }
+
+.radio__buttons{
+    list-style-type: none;
+}
+.radio_li{
+    display: inline-block;
+    margin-right: 80px;
+}
+.radio_li input{
+    background-color: purple;
+}
