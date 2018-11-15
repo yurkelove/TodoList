@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="dd49772f-9760-427d-b430-b7146db28e11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/RadioButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RadioButton.js" afterDir="false" />
+=======
+>>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,9 +36,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+<<<<<<< Updated upstream
           <entry key="css" value="11" />
           <entry key="html" value="3" />
           <entry key="js" value="102" />
+=======
+          <entry key="css" value="9" />
+          <entry key="html" value="2" />
+          <entry key="js" value="76" />
+>>>>>>> Stashed changes
           <entry key="json" value="2" />
           <entry key="ts" value="1" />
         </counts>
@@ -45,22 +54,38 @@
           <entry key="CSS" value="11" />
           <entry key="HTML" value="3" />
           <entry key="JSON" value="2" />
+<<<<<<< Updated upstream
           <entry key="JavaScript" value="102" />
           <entry key="TypeScript" value="1" />
+=======
+          <entry key="JavaScript" value="76" />
+>>>>>>> Stashed changes
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+<<<<<<< Updated upstream
           <entry key="css" value="959" />
           <entry key="html" value="40" />
           <entry key="js" value="15898" />
+=======
+          <entry key="css" value="839" />
+          <entry key="html" value="17" />
+          <entry key="js" value="10432" />
+>>>>>>> Stashed changes
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+<<<<<<< Updated upstream
           <entry key="CSS" value="959" />
           <entry key="HTML" value="40" />
           <entry key="JavaScript" value="15898" />
+=======
+          <entry key="CSS" value="839" />
+          <entry key="HTML" value="17" />
+          <entry key="JavaScript" value="10432" />
+>>>>>>> Stashed changes
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -83,8 +108,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/App.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="408">
               <caret line="102" column="11" lean-forward="true" selection-start-line="102" selection-start-column="11" selection-end-line="102" selection-end-column="11" />
+=======
+            <state relative-caret-position="17">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
+>>>>>>> Stashed changes
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -93,6 +123,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< Updated upstream
         <entry file="file://$PROJECT_DIR$/src/components/CreateTask.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
@@ -120,6 +151,14 @@
               <caret line="3" column="59" lean-forward="true" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/components/TaskList.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+>>>>>>> Stashed changes
               </folding>
             </state>
           </provider>
@@ -150,7 +189,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
+<<<<<<< Updated upstream
         <entry key="$PROJECT_DIR$" value="develop" />
+=======
+        <entry key="$PROJECT_DIR$" value="branch_filter" />
+>>>>>>> Stashed changes
       </map>
     </option>
   </component>
@@ -196,7 +239,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="25" />
     <option name="y" value="136" />
     <option name="width" value="1346" />
@@ -292,7 +335,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="114218000" />
+=======
+    <option name="totallyTimeSpent" value="81946000" />
+>>>>>>> Stashed changes
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -305,7 +352,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.18229167" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -414,16 +460,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state>
           <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
+=======
+        <state relative-caret-position="51">
+          <caret line="3" column="59" lean-forward="true" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
+>>>>>>> Stashed changes
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/TaskList.js">
+    <entry file="file://$PROJECT_DIR$/src/components/CreateTask.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="306">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
@@ -462,16 +514,34 @@
           <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
-          </folding>
+=======
+        <state relative-caret-position="153">
+          <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="102" column="11" lean-forward="true" selection-start-line="102" selection-start-column="11" selection-end-line="102" selection-end-column="11" />
+        <state relative-caret-position="17">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
+>>>>>>> Stashed changes
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/TaskList.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
+        <state relative-caret-position="408">
+          <caret line="102" column="11" lean-forward="true" selection-start-line="102" selection-start-column="11" selection-end-line="102" selection-end-column="11" />
+=======
+        <state relative-caret-position="187">
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+>>>>>>> Stashed changes
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
