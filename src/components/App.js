@@ -86,19 +86,16 @@ class App extends Component {
 
     filterItems = () => {
         const currentFilter = this.state.filter;
-        const filtredItems = this.state.tasks.filter(function (item) {
+        const filtredItems = this.state.tasks.filter(item => {
             switch (currentFilter) {
                 case ALL :
-                    console.log('ALL');
-                    return item;
+                    return true;
                 case DONE:
-                    item.isDone = true;
-                    break;
+                    return item.isDone;
                 case NOTDONE:
-                    item.isDone = false;
-                    break;
+                    return  !item.isDone;
                 default :
-                    // return false
+                    return true;
             }
         });
         return filtredItems;
