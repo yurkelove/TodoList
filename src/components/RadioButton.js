@@ -1,39 +1,58 @@
-import React  from 'react'
+import React, {PureComponent}  from 'react'
+import {ALL} from '../constants'
+import {DONE} from '../constants'
+import {NOTDONE} from '../constants'
 
 
-const RadioButton = (props) =>{
-
-   return(
-
-    <form className={`radio__form`}>
-       <div className="radio__container">
-           <ul className={`radio__buttons`}>
-               <li className={`radio_li`}>
-                   <label>
-                       <input type="radio" value="All" checked={props.filter === "all"}/>
-                       All
-                   </label>
-               </li>
-               <li className={`radio_li`}>
-                   <label>
-                       <input type="radio" value="Done" checked={props.filter === "done"}/>
-                       Done
-                   </label>
-               </li>
-               <li className={`radio_li`}>
-                   <label>
-                       <input type="radio" value="NotDone" checked={props.filter === "notdone"}/>
-                       NotDone
-                   </label>
-               </li>
-           </ul>
-       </div>
-    </form>
-
-   )
+class RadioButton  extends PureComponent{
 
 
-};
+    render(){
+        const filter = this.props.filter;
+        return(
+
+            <form className={`radio__form`}>
+                <div className="radio__container">
+                    <ul className={`radio__buttons`}>
+                        <li className={`radio_li`}>
+                            <label>
+                                <input type="radio" value={ALL} checked={filter === ALL}  onChange={this.optionChange}  />
+                                All
+                            </label>
+                        </li>
+                        <li className={`radio_li`}>
+                            <label>
+                                <input type="radio" value={DONE} checked={filter === DONE} onChange={this.optionChange}  />
+                                Done
+                            </label>
+                        </li>
+                        <li className={`radio_li`}>
+                            <label>
+                                <input type="radio" value={NOTDONE} checked={filter === NOTDONE} onChange={this.optionChange} />
+                                NotDone
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+
+        )
+
+    }
+
+
+    optionChange = (e) => {
+        const {changeCurrentFilter} = this.props;
+        changeCurrentFilter(e.target.value);
+    };
+
+
+
+
+
+
+}
+
 
 
 export default RadioButton

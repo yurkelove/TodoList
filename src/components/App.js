@@ -5,6 +5,10 @@ import './css/style.css'
 import nanoid from "nanoid";
 import EmptyList from './EmptyList'
 import RadioButton from './RadioButton'
+import {ALL} from '../constants'
+import {DONE} from '../constants'
+import {NOTDONE} from '../constants'
+
 
 
 
@@ -14,13 +18,12 @@ class App extends Component {
        super(props);
         this.state = {
             tasks: [],
-            filter : 'done'
+            filter : ALL
         }
     }
 
     componentDidMount() {
         let tasksFromLS = this.getLocal();
-        console.log(tasksFromLS);
         if(tasksFromLS === undefined ){
             tasksFromLS = [];
         }
@@ -32,6 +35,13 @@ class App extends Component {
     getLocal = () => {
         return JSON.parse(localStorage.getItem('tasks'));
     };
+
+    changeCurrentFilter = (currentFilter) => {
+        this.setState({
+            filter: currentFilter
+        });
+    };
+
 
     tolocal = () => {
         localStorage.setItem('tasks',JSON.stringify(this.state.tasks));
@@ -74,6 +84,28 @@ class App extends Component {
         });
     };
 
+    filterItems = () => {
+        const currentFilter = this.state.filter;
+        const filtredItems = this.state.tasks.filter(function (item) {
+            switch (currentFilter) {
+                case ALL :
+                    console.log('ALL');
+                    return item;
+                case DONE:
+                    item.isDone = true;
+                    break;
+                case NOTDONE:
+                    item.isDone = false;
+                    break;
+                default :
+                    // return false
+            }
+        });
+        return filtredItems;
+    };
+
+
+
 
     //TaskList items = {items} - прокинули в TaskList
 
@@ -90,14 +122,18 @@ class App extends Component {
                             />
                             {
                                 tasksLen ? <TaskList
-                                    items = {this.state.tasks}
+                                    items = {this.filterItems()}
                                     toogleTask = {this.toogleTask}
                                     deleteTask = {this.deleteTask}
                                 /> : <EmptyList/>
                             }
                         </div>
                         <div className="RadioButton__filter">
-                            <RadioButton filter = {this.state.filter}/>
+                            <RadioButton
+                                filter = {this.state.filter}
+                                changeCurrentFilter = {this.changeCurrentFilter}
+
+                            />
                         </div>
                     </div>
                 </div>
