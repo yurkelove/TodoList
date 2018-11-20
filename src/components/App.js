@@ -5,10 +5,10 @@ import './css/style.css'
 import nanoid from "nanoid";
 import EmptyList from './EmptyList'
 import RadioButton from './RadioButton'
+import CheckTask from './CheckTasks'
 import {ALL} from '../constants'
 import {DONE} from '../constants'
 import {NOTDONE} from '../constants'
-
 
 
 
@@ -18,7 +18,8 @@ class App extends Component {
        super(props);
         this.state = {
             tasks: [],
-            filter : ALL
+            filter : ALL,
+            checkTasks : []
         }
     }
 
@@ -40,6 +41,20 @@ class App extends Component {
         this.setState({
             filter: currentFilter
         });
+    };
+
+    checkTask = (id) => {
+      const checkTasks = this.state.checkTasks;
+      const index = checkTasks.findIndex(item => item === id);
+      if(index !== -1){
+          checkTasks.splice(index,1)
+      }else{
+          checkTasks.push(id)
+      }
+      this.setState({
+          checkTasks : checkTasks
+      });
+
     };
 
 
@@ -73,6 +88,16 @@ class App extends Component {
         });
     };
 
+
+    deleteCheckTask = (id) => {
+        const checkMass = this.state.checkTasks;
+        console.log(checkMass);
+        const taskFiltr = this.state.tasks.filter(item => item.id);
+        this.setState({
+            tasks : taskFiltr
+        });
+
+    };
 
     toogleTask = (id) => {
         const task = this.state.tasks.find(task => task.id === id);
@@ -118,18 +143,21 @@ class App extends Component {
                                 createTask = {this.createTask}
                             />
                             {
-                                tasksLen ? <TaskList
+                                    tasksLen ? <TaskList
                                     items = {this.filterItems()}
                                     toogleTask = {this.toogleTask}
                                     deleteTask = {this.deleteTask}
+                                    checkTask = {this.checkTask}
                                 /> : <EmptyList/>
                             }
                         </div>
+                        <CheckTask
+                                deleteCheckTask = {this.deleteCheckTask}
+                        />
                         <div className="RadioButton__filter">
                             <RadioButton
                                 filter = {this.state.filter}
                                 changeCurrentFilter = {this.changeCurrentFilter}
-
                             />
                         </div>
                     </div>

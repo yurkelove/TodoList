@@ -6,7 +6,7 @@ import TaskItem from "./TaskItem";
 
 const TaskList = (props) => {
     const listElements = props.items.map((item) =>
-        <TaskItem key={item.id} {...item} toogleTask = {props.toogleTask} deleteTask = {props.deleteTask}/>
+        <TaskItem key={item.id} {...item} toogleTask = {props.toogleTask} deleteTask = {props.deleteTask} checkTask = {props.checkTask}/>
     );
     return(
         <div className ="TodoList__listArea">

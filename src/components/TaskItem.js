@@ -23,7 +23,7 @@ class TaskItem extends PureComponent{
                  <button className={`button__item`} onClick ={this.handleClick}>
                     {this.props.isDone ?  cross :  mark   }
                  </button>
-
+                 <input className={`check__item`} type="checkbox" id="taskCheck"  onChange={this.handleCheck}/>
             </li>
 
         )
@@ -32,7 +32,6 @@ class TaskItem extends PureComponent{
     handleClick = () =>{
         // Метод из родителя,id
         const {toogleTask,id} = this.props;
-        // Вызов метода из родительского елемента
         toogleTask(id);
     };
 
@@ -40,6 +39,13 @@ class TaskItem extends PureComponent{
         const {deleteTask,id} = this.props;
         deleteTask(id);
     };
+
+    handleCheck = () => {
+        const {checkTask,id} = this.props;
+        checkTask(id);
+    }
+
+
 
 
 }

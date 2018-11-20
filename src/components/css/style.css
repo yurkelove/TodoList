@@ -143,3 +143,28 @@
 .radio_li input{
     background-color: purple;
 }
+.check__item{
+    float:right;
+    margin-right: 50px;
+    height: 30px;
+}
+.delete__tasks{
+    padding: 7px 15px;
+    background: purple;
+    color: white;
+    font-size: 16px;
+    border: 1px solid purple;
+    border-radius: 5px;
+}
+
+.delete__tasks:hover{
+    background-color: #430043;
+    -webkit-transition: all .25s;
+    transition: all .25s;
+    cursor: pointer;
+}
+.todoList__deleteItem{
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 30px;
+}
