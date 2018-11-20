@@ -89,10 +89,9 @@ class App extends Component {
     };
 
 
-    deleteCheckTask = (id) => {
+    deleteCheckTask = () => {
         const checkMass = this.state.checkTasks;
-        console.log(checkMass);
-        const taskFiltr = this.state.tasks.filter(item => item.id);
+        const taskFiltr = this.state.tasks.filter(item => !checkMass.includes(item.id));
         this.setState({
             tasks : taskFiltr
         });

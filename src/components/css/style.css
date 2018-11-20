@@ -144,9 +144,9 @@
     background-color: purple;
 }
 .check__item{
-    float:right;
+    float:left;
     margin-right: 50px;
-    height: 30px;
+    height: 40px;
 }
 .delete__tasks{
     padding: 7px 15px;

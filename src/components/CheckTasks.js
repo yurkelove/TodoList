@@ -13,8 +13,8 @@ class CheckTasks extends PureComponent{
     }
 
     deleteCheckHandler = () => {
-        const {deleteCheckTask,id} = this.props;
-        deleteCheckTask(id);
+        const {deleteCheckTask} = this.props;
+        deleteCheckTask();
     }
 
 }
