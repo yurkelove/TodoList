@@ -46,11 +46,11 @@ class App extends Component {
     checkTask = (id) => {
       const checkTasks = this.state.checkTasks;
       const index = checkTasks.findIndex(item => item === id);
-      if(index !== -1){
-          checkTasks.splice(index,1)
-      }else{
-          checkTasks.push(id)
-      }
+          if(index !== -1){
+              checkTasks.splice(index,1)
+          }else{
+              checkTasks.push(id)
+          }
       this.setState({
           checkTasks : checkTasks
       });
@@ -91,7 +91,16 @@ class App extends Component {
 
     deleteCheckTask = () => {
         const checkMass = this.state.checkTasks;
-        const taskFiltr = this.state.tasks.filter(item => !checkMass.includes(item.id));
+        const taskFiltr = this.state.tasks.filter(item => {
+            //метод - булевое значение , в массиве - булевое значение
+            if(this.isInCurrentFilter(item) && checkMass.includes(item.id)) {
+                return false;
+            }else{
+                return true;
+            }
+        });
+
+
         this.setState({
             tasks : taskFiltr
         });
@@ -109,21 +118,29 @@ class App extends Component {
     };
 
     filterItems = () => {
-        const currentFilter = this.state.filter;
         const filtredItems = this.state.tasks.filter(item => {
-            switch (currentFilter) {
-                case ALL :
-                    return true;
-                case DONE:
-                    return item.isDone;
-                case NOTDONE:
-                    return  !item.isDone;
-                default :
-                    return true;
-            }
+           return this.isInCurrentFilter(item);
         });
         return filtredItems;
     };
+
+    // Проверяет соответсвует ли задача текущему выбраному фильтру
+    isInCurrentFilter = (item) => {
+        const currentFilter = this.state.filter;
+        switch (currentFilter) {
+            case ALL :
+                return true;
+            case DONE:
+                //item.isDone === true
+                return item.isDone;
+            case NOTDONE :
+                //item.isDone === false
+                return !item.isDone;
+            default :
+                return true;
+        }
+    };
+
 
 
 
