@@ -1,177 +1,142 @@
-import React ,{Component} from 'react'
-import TaskList from './TaskList'
-import CreateTask from './CreateTask'
-import './css/style.css'
-import nanoid from "nanoid";
-import EmptyList from './EmptyList'
-import RadioButton from './RadioButton'
-import CheckTask from './CheckTasks'
-import {ALL} from '../constants'
-import {DONE} from '../constants'
-import {NOTDONE} from '../constants'
-
-
+import React, { Component } from 'react';
+import nanoid from 'nanoid';
+import TasksList from './TasksList';
+import CreateTask from './CreateTask';
+import './css/style.css';
+import EmptyList from './EmptyList';
+import SwitchFilter from './SwitchFilter';
+import DeleteTasks from './DeleteTasks';
+import { ALL, DONE, NOTDONE } from '../constants';
+import { getFromLS, writeToLS } from '../utils';
 
 
 class App extends Component {
-    constructor(props) {
-       super(props);
-        this.state = {
-            tasks: [],
-            filter : ALL,
-            checkTasks : []
-        }
-    }
+    state = {
+      tasks: [],
+      filter: ALL,
+      checkTasks: [],
+    };
 
     componentDidMount() {
-        let tasksFromLS = this.getLocal();
-        if(tasksFromLS === undefined ){
-            tasksFromLS = [];
-        }
-        this.setState({
-            tasks: tasksFromLS
-        });
-    };
+      let tasksFromLS = getFromLS('tasks');
+      if (tasksFromLS === undefined) {
+        tasksFromLS = [];
+      }
+      this.setState({
+        tasks: tasksFromLS,
+      });
+    }
 
-    getLocal = () => {
-        return JSON.parse(localStorage.getItem('tasks'));
-    };
 
     changeCurrentFilter = (currentFilter) => {
-        this.setState({
-            filter: currentFilter
-        });
+      this.setState({
+        filter: currentFilter,
+      });
     };
 
     checkTask = (id) => {
-      const checkTasks = this.state.checkTasks;
+      const { checkTasks } = this.state;
       const index = checkTasks.findIndex(item => item === id);
-          if(index !== -1){
-              checkTasks.splice(index,1)
-          }else{
-              checkTasks.push(id)
-          }
+      if (index !== -1) {
+        checkTasks.splice(index, 1);
+      } else {
+        checkTasks.push(id);
+      }
       this.setState({
-          checkTasks : checkTasks
+        checkTasks,
       });
-
     };
-
-
-    tolocal = () => {
-        localStorage.setItem('tasks',JSON.stringify(this.state.tasks));
-    };
-
-
 
     createTask = (text) => {
-        const taskObj = {
-            id: nanoid(),
-            text: text,
-            isDone:false
-        };
-        this.state.tasks.push(taskObj);
-        this.setState({
-            tasks: this.state.tasks,
-        },() => {
-            this.tolocal();
-        });
+      const taskObj = {
+        id: nanoid(),
+        text,
+        isDone: false,
+      };
+      this.state.tasks.push(taskObj);
+      this.setState({
+        tasks: this.state.tasks,
+      }, () => writeToLS('tasks', this.state.tasks));
     };
 
     deleteTask = (id) => {
-        const index = this.state.tasks.findIndex(item => item.id === id);
-        this.state.tasks.splice(index,1);
-        this.setState({
-            tasks: this.state.tasks
-        },() => {
-            this.tolocal();
-        });
+      const index = this.state.tasks.findIndex(item => item.id === id);
+      this.state.tasks.splice(index, 1);
+      this.setState({
+        tasks: this.state.tasks,
+      }, () => writeToLS('tasks', this.state.tasks));
     };
 
 
-    deleteCheckTask = () => {
-        const checkMass = this.state.checkTasks;
-        const taskFiltr = this.state.tasks.filter(item => {
-            //метод - булевое значение , в массиве - булевое значение
-            if(this.isInCurrentFilter(item) && checkMass.includes(item.id)) {
-                return false;
-            }else{
-                return true;
-            }
-        });
-
-
-        this.setState({
-            tasks : taskFiltr
-        });
-
+    deleteCheckedTasks = () => {
+      const { checkTasks, tasks } = this.state;
+      const filteredTasks = tasks.filter((item) => {
+        // метод - булевое значение , в массиве - булевое значение
+        if (this.isInCurrentFilter(item) && checkTasks.includes(item.id)) {
+          return false;
+        }
+        return true;
+      });
+      this.setState({
+        tasks: filteredTasks,
+      });
     };
 
     toogleTask = (id) => {
-        const task = this.state.tasks.find(task => task.id === id);
-        task.isDone = !task.isDone;
-        this.setState({
-          tasks:this.state.tasks
-        },() => {
-            this.tolocal();
-        });
+      const task = this.state.tasks.find(taskItem => taskItem.id === id);
+      task.isDone = !task.isDone;
+      this.setState({
+        tasks: this.state.tasks,
+      }, () => writeToLS('tasks', this.state.tasks));
     };
 
     filterItems = () => {
-        const filtredItems = this.state.tasks.filter(item => {
-           return this.isInCurrentFilter(item);
-        });
-        return filtredItems;
+      const filtredItems = this.state.tasks.filter(item => this.isInCurrentFilter(item));
+      return filtredItems;
     };
 
     // Проверяет соответсвует ли задача текущему выбраному фильтру
     isInCurrentFilter = (item) => {
-        const currentFilter = this.state.filter;
-        switch (currentFilter) {
-            case ALL :
-                return true;
-            case DONE:
-                //item.isDone === true
-                return item.isDone;
-            case NOTDONE :
-                //item.isDone === false
-                return !item.isDone;
-            default :
-                return true;
-        }
+      const currentFilter = this.state.filter;
+      switch (currentFilter) {
+        case ALL:
+          return true;
+        case DONE:
+          // item.isDone === true
+          return item.isDone;
+        case NOTDONE:
+          // item.isDone === false
+          return !item.isDone;
+        default:
+          return true;
+      }
     };
 
 
-
-
-
-    //TaskList items = {items} - прокинули в TaskList
+    // TasksList items = {items} - прокинули в TasksList
 
     render() {
-        const tasksLen = this.state.tasks.length;
-        return (
+      const tasksLen = this.state.tasks.length;
+      return (
             <div className="TodoList">
                 <div className ="TodoList__container">
                     <h1 className = "Todolist__title">Todo List</h1>
                     <div className="TodoList__Area">
                         <div className="TodoList__BOX">
-                            <CreateTask
-                                createTask = {this.createTask}
-                            />
+                            <CreateTask createTask = {this.createTask}/>
                             {
-                                    tasksLen ? <TaskList
+                                tasksLen
+                                  ? <TasksList
                                     items = {this.filterItems()}
                                     toogleTask = {this.toogleTask}
                                     deleteTask = {this.deleteTask}
                                     checkTask = {this.checkTask}
-                                /> : <EmptyList/>
+                                    /> : <EmptyList/>
                             }
                         </div>
-                        <CheckTask
-                                deleteCheckTask = {this.deleteCheckTask}
-                        />
+                        <DeleteTasks deleteCheckedTasks = {this.deleteCheckedTasks}/>
                         <div className="RadioButton__filter">
-                            <RadioButton
+                            <SwitchFilter
                                 filter = {this.state.filter}
                                 changeCurrentFilter = {this.changeCurrentFilter}
                             />
@@ -180,10 +145,9 @@ class App extends Component {
                 </div>
 
             </div>
-        );
+      );
     }
 }
 
 
-export default App
-
+export default App;

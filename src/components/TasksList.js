@@ -4,7 +4,7 @@ import TaskItem from "./TaskItem";
 
 
 
-const TaskList = (props) => {
+const TasksList = (props) => {
     const listElements = props.items.map((item) =>
         <TaskItem key={item.id} {...item} toogleTask = {props.toogleTask} deleteTask = {props.deleteTask} checkTask = {props.checkTask}/>
     );
@@ -21,4 +21,4 @@ const TaskList = (props) => {
 
 
 
-export default TaskList
+export default TasksList
