@@ -12,15 +12,15 @@ class TaskItem extends PureComponent {
     return (
         <li className={'todo__item'}>
             {/* используем this.props.isDone - так как мы в TaskList - сделали spread operator */}
-                 <span className={this.props.isDone ? 'item__done' : ''}>
-                     {this.props.text}
-                 </span>
-                 <button className={'delate__item'} onClick={this.handleDelete}>Удалить</button>
-                 <button className={'button__item'} onClick ={this.handleClick}>
-                    {this.props.isDone ? cross : mark }
-                 </button>
-                 <input className={'check__item'} type="checkbox" id="taskCheck" onChange={this.handleCheck}/>
-            </li>
+            <span className={this.props.isDone ? 'item__done' : ''}>
+                {this.props.text}
+            </span>
+            <button className={'delate__item'} onClick={this.handleDelete}>Удалить</button>
+            <button className={'button__item'} onClick ={this.handleClick}>
+                {this.props.isDone ? cross : mark }
+            </button>
+            <input className={'check__item'} type="checkbox" id="taskCheck" onChange={this.handleCheck}/>
+        </li>
     );
   }
 

@@ -4,30 +4,14 @@ import { ALL, DONE, NOTDONE } from '../constants';
 
 class SwitchFilter extends PureComponent {
   render() {
-    const { filter } = this.props;
     return (
 
             <form className={'radio__form'}>
                 <div className="radio__container">
                     <ul className={'radio__buttons'}>
-                        <li className={'radio_li'}>
-                            <label>
-                                <input type="radio" value={ALL} checked={filter === ALL} onChange={this.optionChange} />
-                                All
-                            </label>
-                        </li>
-                        <li className={'radio_li'}>
-                            <label>
-                                <input type="radio" value={DONE} checked={filter === DONE} onChange={this.optionChange} />
-                                Done
-                            </label>
-                        </li>
-                        <li className={'radio_li'}>
-                            <label>
-                                <input type="radio" value={NOTDONE} checked={filter === NOTDONE} onChange={this.optionChange} />
-                                NotDone
-                            </label>
-                        </li>
+                        {this.createLiElements(ALL)}
+                        {this.createLiElements(DONE)}
+                        {this.createLiElements(NOTDONE)}
                     </ul>
                 </div>
             </form>
@@ -36,11 +20,19 @@ class SwitchFilter extends PureComponent {
   }
 
 
-    optionChange = (e) => {
-      const { changeCurrentFilter } = this.props;
-      changeCurrentFilter(e.target.value);
-    };
-}
+  optionChange = (e) => {
+    const { changeCurrentFilter } = this.props;
+    changeCurrentFilter(e.target.value);
+  };
 
+  createLiElements = filterValue => (
+       <li className={'radio_li'}>
+           <label>
+             <input type="radio" value={filterValue} checked={this.props.filter === filterValue} onChange={this.optionChange} />
+               {filterValue}
+           </label>
+       </li>
+  );
+}
 
 export default SwitchFilter;

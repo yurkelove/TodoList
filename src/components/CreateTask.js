@@ -52,7 +52,7 @@ class CreateTask extends Component {
       if (inputValue !== '') {
         createTask(inputValue);
       }
-    }
+    };
 }
 
 
