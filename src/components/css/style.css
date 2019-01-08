@@ -1,3 +1,7 @@
+::-webkit-input-placeholder {color:white;}
+
+
+
 .TodoList{
     margin:0 auto;
     text-align: center;
@@ -7,18 +11,15 @@
     color:black;
 }
 .TodoList__Area{
-    background-color:purple;
-    padding: 50px;
+
     font-size:40px;
 }
 .TodoList__BOX{
     background-color: white;
-    padding: 30px;
     margin: 20px;
     text-align: left;
 }
 .TodoLIst__inputArea{
-    background-color:black;
     width:65%;
     margin-right: 20px;
     padding:20px;
@@ -26,26 +27,144 @@
     color:white;
     font-size:18px;
 }
+.TodoLIst__inputArea input{
+    width: 100%;
+    padding: 20px;
+    border:1px solid purple;
+    border-radius: 5px;
+    background-color:purple;
+    color:white;
+    font-size:18px;
+}
 .TodoList__buttonArea{
-    background-color: purple;
     width: 26%;
     padding: 20px;
     display: inline-block;
     text-align: center;
 }
+.TodoList__buttonArea .buttonAdd{
+    background-color:purple;
+    outline:none;
+    border:1px solid purple;
+    padding: 20px;
+    border-radius: 5px;
+    color:white;
+    width: 100%;
+    font-size:18px;
+}
+.buttonAdd:hover{
+    background-color: #430043;
+    transition: all .25s;
+    cursor:pointer;
+}
 .TodoList__listArea{
-    background-color:black;
-    margin-top:20px;
     padding: 30px;
 }
-.taskList{
+.todo__elements{
     list-style-type: none;
     margin: 0;
     padding: 0;
+    font-size:40px;
+    color:black;
+}
+#todoList{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size:40px;
+    color:black;
 
 }
 .taskList__task{
     color:white;
     padding-top:15px;
     border-bottom:1px solid white;
+}
+.item__done{
+    text-decoration: line-through;
+}
+.todo__item{
+    color:black;
+    font-size:40px;
+}
+.button__item{
+    float:right;
+    background: purple;
+    text-decoration: none;
+    width: 35px;
+    padding: 6px;
+    border: 1px solid purple;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    cursor:pointer;
+    margin-right: 30px;
+}
+.button__item:hover{
+    background-color: #430043;
+    transition: all .25s;
+    cursor:pointer;
+}
+.delate__item{
+    float: right;
+    background-color: black;
+    color:white;
+    text-decoration: none;
+    padding: 6px 12px;
+    border:1px solid black;
+    border-radius: 5px;
+    font-size:18px;
+    curson:pointer;
+    margin-right: 10px;
+}
+.delate__item:hover{
+    background-color: red;
+    transition: all .25s;
+    cursor:pointer;
+    border: 1px solid red;
+}
+
+.show__message{
+    margin: 0 auto;
+    font-size: 30px;
+    font-weight: 600;
+    color: purple;
+    text-align: center;
+    margin-top:30px;
+}
+
+.radio__buttons{
+    list-style-type: none;
+}
+.radio_li{
+    display: inline-block;
+    margin-right: 80px;
+}
+.radio_li input{
+    background-color: purple;
+}
+.check__item{
+    float:left;
+    margin-right: 50px;
+    height: 40px;
+}
+.delete__tasks{
+    padding: 7px 15px;
+    background: purple;
+    color: white;
+    font-size: 16px;
+    border: 1px solid purple;
+    border-radius: 5px;
+}
+
+.delete__tasks:hover{
+    background-color: #430043;
+    -webkit-transition: all .25s;
+    transition: all .25s;
+    cursor: pointer;
+}
+.todoList__deleteItem{
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 30px;
 }
