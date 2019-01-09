@@ -19,7 +19,7 @@ class App extends Component {
 
     componentDidMount() {
       let tasksFromLS = getFromLS('tasks');
-      if (tasksFromLS === undefined) {
+      if (tasksFromLS === undefined || tasksFromLS === null) {
         tasksFromLS = [];
       }
       this.setState({
